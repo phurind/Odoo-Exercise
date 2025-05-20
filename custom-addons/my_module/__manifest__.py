@@ -6,7 +6,8 @@
     'author': 'Your Name',
     'depends': ['base'],
     'data': [
-        'security/ir.model.access.csv',
+       'security/ir.model.access.csv',
+        'views/todo_action.xml',         
         'views/todo_menu.xml',
         'views/todo_list_view.xml',
         'views/todo_item_view.xml',

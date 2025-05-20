@@ -1,0 +1,53 @@
+<odoo>
+  <record id="view_todo_list_form" model="ir.ui.view">
+    <field name="name">todo.list.form</field>
+    <field name="model">todo.list</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="tag_ids"/>
+            <field name="date_start"/>
+            <field name="date_end"/>
+            <field name="status" readonly="1"/>
+            <field name="participant_ids"/>
+          </group>
+
+          <notebook>
+            <page string="Items">
+              <field name="item_ids" attrs="{'invisible': [('status', '!=', 'in_progress')]}">
+                <tree editable="bottom">
+                  <field name="name"/>
+                  <!-- <field name="description"/>
+                  <field name="is_done"/> -->
+                </tree>
+              </field>
+            </page>
+          </notebook>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+
+  <record id="view_todo_list_tree" model="ir.ui.view">
+    <field name="name">todo.list.tree</field>
+    <field name="model">todo.list</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="date_start"/>
+        <field name="date_end"/>
+        <field name="status"/>
+      </tree>
+    </field>
+  </record>
+
+
+  <record id="action_todo_list" model="ir.actions.act_window">
+    <field name="name">Todo Lists</field>
+    <field name="res_model">todo.list</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>
