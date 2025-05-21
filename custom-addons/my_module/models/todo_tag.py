@@ -5,3 +5,4 @@ class TodoTag(models.Model):
     _description = 'Todo Tag'
 
     name = fields.Char(string='Tag Name', required=True)
+    color = fields.Integer(string='Color Index')

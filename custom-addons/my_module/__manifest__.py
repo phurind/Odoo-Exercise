@@ -11,6 +11,8 @@
         'views/todo_menu.xml',
         'views/todo_list_view.xml',
         'views/todo_item_view.xml',
+        'views/todo_tag_view.xml',
+        'data/tag_data.xml',
     ],
     'installable': True,
     'application': True,

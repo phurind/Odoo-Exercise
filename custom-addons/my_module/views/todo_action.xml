@@ -4,4 +4,9 @@
     <field name="res_model">todo.list</field>
     <field name="view_mode">tree,form</field>
   </record>
+  <record id="action_todo_tag" model="ir.actions.act_window">
+    <field name="name">Tags</field>
+    <field name="res_model">todo.tag</field>
+    <field name="view_mode">tree,form</field>
+</record>
 </odoo>

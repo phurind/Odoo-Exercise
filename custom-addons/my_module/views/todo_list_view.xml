@@ -1,22 +1,27 @@
 <odoo>
+  <!-- Form View -->
   <record id="view_todo_list_form" model="ir.ui.view">
     <field name="name">todo.list.form</field>
     <field name="model">todo.list</field>
     <field name="arch" type="xml">
       <form>
+        <header>
+          <button name="action_start" type="object" string="Start" states="draft" class="btn-primary"/>
+          <button name="action_complete" type="object" string="Complete" states="in_progress" class="btn-success"/>
+          <field name="status" widget="statusbar" readonly="1"/>
+        </header>
         <sheet>
           <group>
             <field name="name"/>
-            <field name="tag_ids"/>
+            <field name="tag_ids" widget="many2many_tags"/>
             <field name="date_start"/>
             <field name="date_end"/>
             <field name="status" readonly="1"/>
-            <field name="participant_ids"/>
+            <field name="participant_ids" widget="many2many_tags"/>
           </group>
-
           <notebook>
             <page string="Items">
-              <field name="item_ids" attrs="{'invisible': [('status', '!=', 'in_progress')]}">
+              <field name="item_ids">
                 <tree editable="bottom">
                   <field name="name"/>
                   <!-- <field name="description"/>
@@ -39,11 +44,10 @@
         <field name="name"/>
         <field name="date_start"/>
         <field name="date_end"/>
-        <field name="status"/>
+        <field name="status" widget="statusbar"/>
       </tree>
     </field>
   </record>
-
 
   <record id="action_todo_list" model="ir.actions.act_window">
     <field name="name">Todo Lists</field>
@@ -51,3 +55,4 @@
     <field name="view_mode">tree,form</field>
   </record>
 </odoo>
+

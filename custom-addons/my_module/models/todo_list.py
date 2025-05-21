@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from odoo.exceptions import ValidationError  
 
 class TodoList(models.Model):
     _name = 'todo.list'
@@ -21,3 +22,15 @@ class TodoList(models.Model):
         for rec in self:
             if rec.date_end < rec.date_start:
                 raise ValidationError('End date must be after start date')
+
+    def action_start(self):
+        for rec in self:
+            if rec.status != 'draft':
+                raise ValidationError("Only Draft tasks can be started.")
+            rec.status = 'in_progress'
+
+    def action_complete(self):
+        for rec in self:
+            if rec.status != 'in_progress':
+                raise ValidationError("Only In Progress tasks can be completed.")
+            rec.status = 'complete'

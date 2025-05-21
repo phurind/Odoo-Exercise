@@ -1,4 +1,9 @@
 <odoo>
-  <menuitem id="menu_todo_root" name="Todo"/>
+
+  <menuitem id="menu_todo_root" name="Todo" sequence="20"/>
+
   <menuitem id="menu_todo_list" name="Todo Lists" parent="menu_todo_root" action="action_todo_list"/>
+
+  <menuitem id="menu_todo_tags" name="Tags" parent="menu_todo_root" action="action_todo_tag"/>
+  
 </odoo>
