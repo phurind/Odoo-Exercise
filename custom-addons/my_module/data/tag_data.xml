@@ -1,34 +1,16 @@
-<!-- <odoo>
+<odoo>
+  <data noupdate="1">
     <record id="tag_work" model="todo.tag">
-        <field name="name">Work</field>
-        <field name="color">1</field>
+      <field name="name">Work</field>
     </record>
     <record id="tag_event" model="todo.tag">
-        <field name="name">Event</field>
-        <field name="color">2</field>
+      <field name="name">Event</field>
     </record>
     <record id="tag_life" model="todo.tag">
-        <field name="name">Life</field>
-        <field name="color">3</field>
+      <field name="name">Life</field>
     </record>
     <record id="tag_achievement" model="todo.tag">
-        <field name="name">Achievement</field>
-        <field name="color">4</field>
+      <field name="name">Achievement</field>
     </record>
-</odoo> -->
-
-<odoo noupdate="0">
-  <record id="todo_tag_work" model="todo.tag">
-    <field name="name">Work</field>
-  </record>
-  <record id="todo_tag_event" model="todo.tag">
-    <field name="name">Event</field>
-  </record>
-  <record id="todo_tag_life" model="todo.tag">
-    <field name="name">Life</field>
-  </record>
-  <record id="todo_tag_achievement" model="todo.tag">
-    <field name="name">Achievement</field>
-  </record>
+  </data>
 </odoo>
-

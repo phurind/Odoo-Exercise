@@ -7,6 +7,7 @@ class TodoList(models.Model):
 
     name = fields.Char(string='Name', required=True)
     tag_ids = fields.Many2many('todo.tag', string='Tags')
+    item_ids = fields.One2many('todo.item', 'todo_id', string='Items')
     date_start = fields.Date(string='Start Date', required=True)
     date_end = fields.Date(string='End Date', required=True)
     status = fields.Selection([
@@ -34,3 +35,10 @@ class TodoList(models.Model):
             if rec.status != 'in_progress':
                 raise ValidationError("Only In Progress tasks can be completed.")
             rec.status = 'complete'
+    
+    def action_done(self):
+        for rec in self:
+            if not all(item.is_done for item in rec.item_ids):
+                raise ValidationError("All items must be marked as done before completing the Todo List.")
+            rec.status = 'complete'
+    

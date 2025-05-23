@@ -1,31 +1,34 @@
 <odoo>
-  <!-- Form View -->
   <record id="view_todo_list_form" model="ir.ui.view">
     <field name="name">todo.list.form</field>
     <field name="model">todo.list</field>
     <field name="arch" type="xml">
-      <form>
+      <form string="Todo List" attrs="{'readonly': [('status', '=', 'complete')]}">
         <header>
+
           <button name="action_start" type="object" string="Start" states="draft" class="btn-primary"/>
+
           <button name="action_complete" type="object" string="Complete" states="in_progress" class="btn-success"/>
+          <button name="action_done" type="object" string="Done" states="in_progress" class="btn-success"
+                  attrs="{'invisible': [('item_ids', '=', False), ('item_ids.is_done', '=', False)]}"/>
           <field name="status" widget="statusbar" readonly="1"/>
         </header>
         <sheet>
           <group>
             <field name="name"/>
+            <field name="status" readonly="1"/> 
             <field name="tag_ids" widget="many2many_tags"/>
             <field name="date_start"/>
             <field name="date_end"/>
-            <field name="status" readonly="1"/>
             <field name="participant_ids" widget="many2many_tags"/>
           </group>
           <notebook>
             <page string="Items">
-              <field name="item_ids">
-                <tree editable="bottom">
-                  <field name="name"/>
-                  <!-- <field name="description"/>
-                  <field name="is_done"/> -->
+              <field name="item_ids" attrs="{'invisible': [('status', '!=', 'in_progress')]}">
+                <tree editable="bottom" attrs="{'readonly': [('status', '=', 'complete')]}">
+                  <field name="name" string="Item Name"/>
+                  <!-- <field name="description" string="Description"/>
+                  <field name="is_done" string="Done"/> -->
                 </tree>
               </field>
             </page>
@@ -35,7 +38,7 @@
     </field>
   </record>
 
-
+ 
   <record id="view_todo_list_tree" model="ir.ui.view">
     <field name="name">todo.list.tree</field>
     <field name="model">todo.list</field>
@@ -49,10 +52,10 @@
     </field>
   </record>
 
+  
   <record id="action_todo_list" model="ir.actions.act_window">
     <field name="name">Todo Lists</field>
     <field name="res_model">todo.list</field>
     <field name="view_mode">tree,form</field>
   </record>
 </odoo>
-
