@@ -10,23 +10,6 @@
       </tree>
     </field>
   </record>
-
-
-  <record id="view_todo_tag_form" model="ir.ui.view">
-    <field name="name">todo.tag.form</field>
-    <field name="model">todo.tag</field>
-    <field name="arch" type="xml">
-      <form>
-        <sheet>
-          <group>
-            <field name="name"/>
-            <field name="color"/>
-          </group>
-        </sheet>
-      </form>
-    </field>
-  </record>
-
  
   <record id="action_todo_tag" model="ir.actions.act_window">
     <field name="name">Tags</field>
