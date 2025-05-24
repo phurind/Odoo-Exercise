@@ -37,7 +37,7 @@
             <page string="Items">
               <field name="item_ids">
                 <tree editable="bottom">
-                  <field name="name" string="Item Name"/>
+                  <field name="name" string="Name"/>
                   <field name="description"/>
                   <field name="is_done"
                          attrs="{'invisible': [('parent.status', '!=', 'in_progress')]}"/>

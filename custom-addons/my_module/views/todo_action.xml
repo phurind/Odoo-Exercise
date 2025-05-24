@@ -1,6 +1,6 @@
 <odoo>
   <record id="action_todo_list" model="ir.actions.act_window">
-    <field name="name">Todo Lists</field>
+    <field name="name">Todo Lits</field>
     <field name="res_model">todo.list</field>
     <field name="view_mode">tree,form</field>
   </record>
