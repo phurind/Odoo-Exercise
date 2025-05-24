@@ -13,6 +13,7 @@ services:
 
   odoo:
     image: odoo:16
+    container_name: odoo-container
     depends_on:
       - db
     ports:

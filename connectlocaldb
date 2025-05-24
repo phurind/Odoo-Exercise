@@ -1,0 +1,5 @@
+psql -h localhost -U odoo -d odoo
+
+
+ALTER ROLE odoo WITH PASSWORD 'odoopassword';
+
